@@ -2199,6 +2199,24 @@
 				}
 
 				return false;
+			},
+
+			/**
+			 * Removes duplicates from the array.
+			 *
+			 * ```js
+			 * var array = [ 1, 1, 2, 3, 2 ],
+			 * 	arrayWithoutDuplicates = CKEDITOR.tools.array.unique( array );
+			 * console.log( arrayWithoutDuplicates ); // [ 1, 2, 3 ]
+			 * ```
+			 *
+			 * @param {Array} array Array from which duplicates should be removed.
+			 * @returns {Array} The copy of the input array without duplicates.
+			 */
+			unique: function( array ) {
+				return this.filter( array, function( item, index ) {
+					return index === CKEDITOR.tools.array.indexOf( array, item );
+				} );
 			}
 		},
 
